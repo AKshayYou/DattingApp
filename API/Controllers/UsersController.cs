@@ -18,7 +18,6 @@ namespace API.Controllers
         }
 
         [HttpGet("{id}")]
-
         public async Task<ActionResult<AppUser>> GetUser(int id)
         {
             AppUser user = await context.Users.Where(m => m.Id == id).FirstOrDefaultAsync();
