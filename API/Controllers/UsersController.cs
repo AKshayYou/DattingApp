@@ -9,7 +9,6 @@ namespace API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [EnableCors("Policy")]
     public class UsersController(DataContext context) : ControllerBase
     {
 
