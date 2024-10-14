@@ -6,8 +6,9 @@ namespace API.DTOs
     {
         [Required]
         [MaxLength(100)]
-        public string UserName { get; set; }
+        public string UserName { get; set; } = string.Empty;
         [Required]
-        public string Password { get; set; }
+        [StringLength(8, MinimumLength = 4)]
+        public string Password { get; set; } = string.Empty;
     }
 }
