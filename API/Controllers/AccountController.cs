@@ -20,23 +20,25 @@ namespace API.Controllers
             {
                 return BadRequest("User Already Exists");
             }
-            using var hmac = new HMACSHA512();
 
-            var user = new AppUser
-            {
-                UserName = pRegisterDTO.UserName,
-                PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(pRegisterDTO.Password)),
-                PasswordSalt = hmac.Key
-            };
+            return Ok();
+            //using var hmac = new HMACSHA512();
 
-            context.Users.Add(user);
-            await context.SaveChangesAsync();
+            //var user = new AppUser
+            //{
+            //    UserName = pRegisterDTO.UserName,
+            //    PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(pRegisterDTO.Password)),
+            //    PasswordSalt = hmac.Key
+            //};
 
-            return new UserDTO
-            {
-                Username = user.UserName,
-                Token = tokenService.CreateToken(user)
-            };
+            //context.Users.Add(user);
+            //await context.SaveChangesAsync();
+
+            //return new UserDTO
+            //{
+            //    Username = user.UserName,
+            //    Token = tokenService.CreateToken(user)
+            //};
         }
 
         [HttpPost("login")] //account/login
